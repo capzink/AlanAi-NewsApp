@@ -10,7 +10,7 @@ const NewsCard = ({article, index}) => {
       <Card className={classes.card}>
         <CardActionArea href={url} target="_blank">
           <CardMedia className={classes.media} image={urlToImage} />
-          <div className={classes.title}>
+          <div className={classes.details}>
             <Typography variant="body2" color="textSecondary" component="h2">
               {new Date(publishedAt).toDateString()}
             </Typography>
@@ -18,7 +18,12 @@ const NewsCard = ({article, index}) => {
               {source.name}
             </Typography>
           </div>
-          <Typography gutterBottom variant="h5">
+          <Typography
+            className={classes.title}
+            gutterBottom
+            variant="h6"
+            component="h2"
+          >
             {title}
           </Typography>
           <CardContent>
@@ -28,7 +33,7 @@ const NewsCard = ({article, index}) => {
           </CardContent>
         </CardActionArea>
         <CardActions className={classes.card}>
-          <Button size="small" color="primary">
+          <Button size="small" color="primary" href={url}>
             Learn More
           </Button>
           <Typography variant="h5" color="textsecondary">
