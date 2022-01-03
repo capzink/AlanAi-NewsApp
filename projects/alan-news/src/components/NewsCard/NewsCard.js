@@ -1,11 +1,42 @@
 import React from 'react'
+import { Card, CardActions, CardActionArea, CardContent, CardMedia, Button, Typography } from '@material-ui/core'
+import classNames from 'classnames';
+import useStyles from './styles.js'
 
-const NewsCard = () => {
+const NewsCard = ({article, index}) => {
+    const classes = useStyles()
+    const {description, publishedAt, source, title, url, urlToImage}=article
     return (
-        <div>
-            <h1>newscard</h1>
-        </div>
-    )
+      <Card className={classes.card}>
+        <CardActionArea href={url} target="_blank">
+          <CardMedia className={classes.media} image={urlToImage} />
+          <div className={classes.title}>
+            <Typography variant="body2" color="textSecondary" component="h2">
+              {new Date(publishedAt).toDateString()}
+            </Typography>
+            <Typography variant="body2" color="textSecondary" component="h2">
+              {source.name}
+            </Typography>
+          </div>
+          <Typography gutterBottom variant="h5">
+            {title}
+          </Typography>
+          <CardContent>
+            <Typography variant="body2" color="textsecondary" component="p">
+              {description}
+            </Typography>
+          </CardContent>
+        </CardActionArea>
+        <CardActions className={classes.card}>
+          <Button size="small" color="primary">
+            Learn More
+          </Button>
+          <Typography variant="h5" color="textsecondary">
+            {index + 1}
+          </Typography>
+        </CardActions>
+      </Card>
+    );
 }
 
 export default NewsCard
