@@ -3,13 +3,13 @@ import alanBtn from "@alan-ai/alan-sdk-web";
 import NewsCards from "./components/NewsCards/NewsCards";
 import NewsCard from "./components/NewsCard/NewsCard";
 import alan from './images/alanreact.png'
-import useStyles from './styles.js'
+import useStyles from './styles'
 
 
 
 const alankey = "c006edb76096c08abf8044fe3d2a2ba52e956eca572e1d8b807a3e2338fdd0dc/stage";
 const App =()=>{
-
+const classes= useStyles()
 const [news, setNews]=useState([])
 
     useEffect(()=>{
@@ -22,8 +22,8 @@ const [news, setNews]=useState([])
     },[])
     return (
       <div>
-        <div className={classNames.logoContainer}>
-            <img src={alan} alt="" />
+        <div className={classes.logoContainer}>
+            <img src={alan} alt="logo" className={classes.alanLogo} />
         </div>
         <NewsCards articles={news}/>
       </div>
