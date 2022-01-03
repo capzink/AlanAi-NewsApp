@@ -7,7 +7,7 @@ const App =()=>{
     useEffect(()=>{
         alanBtn({ key:alankey, onCommand: ({command, articles})=>{
             if(command === 'newHeadlines'){
-                console.log(articles);
+                
             }
         }
         })
