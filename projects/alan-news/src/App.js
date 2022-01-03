@@ -2,6 +2,8 @@ import React, {useState, useEffect} from "react";
 import alanBtn from "@alan-ai/alan-sdk-web";
 import NewsCards from "./components/NewsCards/NewsCards";
 import NewsCard from "./components/NewsCard/NewsCard";
+import alan from './images/alanreact.png'
+import useStyles from './styles.js'
 
 
 
@@ -20,7 +22,9 @@ const [news, setNews]=useState([])
     },[])
     return (
       <div>
-        <h1>Alan Ai news App</h1>
+        <div className={classNames.logoContainer}>
+            <img src={alan} alt="" />
+        </div>
         <NewsCards articles={news}/>
       </div>
     );
